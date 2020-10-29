@@ -1,6 +1,7 @@
 package jp.petrolingus.autoregression.infrastructure.ui;
 
 import javafx.scene.chart.LineChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
