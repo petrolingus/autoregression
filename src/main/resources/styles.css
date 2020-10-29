@@ -1,0 +1,34 @@
+TextField {
+    -fx-border-radius: 0;
+    -fx-border-color: silver;
+}
+
+
+/* ====== CHART TOP LEVEL ITEMS ================================================= */
+
+.chart-title {
+    -fx-font-size: 1.2em;
+}
+
+
+/* ====== LINE CHART =========================================================== */
+
+.chart-series-line {
+    -fx-stroke-width: 1px;
+    -fx-effect: dropshadow( two-pass-box , rgba(0,0,0,0.3) , 8, 0.0 , 0 , 3 );
+}
+
+.default-color0.chart-line-symbol { -fx-background-color: #0181e2, white; }
+.default-color1.chart-line-symbol { -fx-background-color: #ff5700, white; }
+.default-color2.chart-line-symbol { -fx-background-color: #860061, white; }
+.default-color0.chart-series-line { -fx-stroke: #0181e2; }
+.default-color1.chart-series-line { -fx-stroke: #ff5700; }
+.default-color2.chart-series-line { -fx-stroke: #860061; }
+
+
+/* ====== ==================== ================================================= */
+
+.error-node {
+    -fx-stroke-width: 1.5px;
+    -fx-stroke-dash-array: 4;
+}

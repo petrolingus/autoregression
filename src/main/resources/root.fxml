@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="jp.petrolingus.autoregression.infrastructure.ui.Root"
+            fx:id="root"
+            prefHeight="600.0" prefWidth="1024.0"
+            stylesheets="@styles.css">
+    <left>
+        <VBox prefHeight="200.0" prefWidth="300.0" styleClass="vbox" spacing="8.0">
+            <padding>
+                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+            </padding>
+            <TitledPane animated="false" collapsible="false" text="Выбор частот">
+                <VBox spacing="4.0">
+                    <HBox>
+                        <Label maxHeight="1E308" maxWidth="1E308" text="Частота №1" HBox.hgrow="ALWAYS">
+                            <font>
+                                <Font size="11.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="frequency1" maxHeight="25.0" maxWidth="128.0" HBox.hgrow="ALWAYS" text="0.06"/>
+                    </HBox>
+                    <HBox>
+                        <Label maxHeight="1E308" maxWidth="1E308" text="Частота №2" HBox.hgrow="ALWAYS">
+                            <font>
+                                <Font size="11.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="frequency2" maxHeight="25.0" maxWidth="128.0" HBox.hgrow="ALWAYS" text="0.03"/>
+                    </HBox>
+                    <HBox>
+                        <Label maxHeight="1E308" maxWidth="1E308" text="Частота №3" HBox.hgrow="ALWAYS">
+                            <font>
+                                <Font size="11.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="frequency3" maxHeight="25.0" maxWidth="128.0" HBox.hgrow="ALWAYS" text="0.09"/>
+                    </HBox>
+                </VBox>
+            </TitledPane>
+            <TitledPane animated="false" collapsible="false" text="Интервал сигнала">
+                <VBox spacing="4.0">
+                    <HBox spacing="4.0">
+                        <Label maxHeight="1E308" maxWidth="1E308" text="Граница №1" HBox.hgrow="ALWAYS">
+                            <font>
+                                <Font size="11.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="boundary1" maxHeight="25.0" maxWidth="48.0" HBox.hgrow="ALWAYS" text="256"/>
+                        <Slider blockIncrement="1.0" max="500.0" fx:id="boundarySlider1" maxHeight="1E308" maxWidth="1E308" snapToTicks="true" value="256" />
+                    </HBox>
+                    <HBox spacing="4.0">
+                        <Label maxHeight="1E308" maxWidth="1E308" text="Граница №2" HBox.hgrow="ALWAYS">
+                            <font>
+                                <Font size="11.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="boundary2" maxHeight="25.0" maxWidth="48.0" HBox.hgrow="ALWAYS" text="730"/>
+                        <Slider max="1000.0" fx:id="boundarySlider2" maxHeight="1E308" maxWidth="1E308" min="500.0" value="730" />
+                    </HBox>
+                </VBox>
+            </TitledPane>
+            <TitledPane animated="false" collapsible="false" text="Параметры шума">
+                <VBox spacing="4.0">
+                    <CheckBox fx:id="enableNoise" mnemonicParsing="false" text="Сгенерировать шум" />
+                    <HBox>
+                        <Label maxHeight="1E308" maxWidth="1E308" text="Энергия (%)" HBox.hgrow="ALWAYS">
+                            <font>
+                                <Font size="11.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="noiseEnergyField" maxHeight="25.0" maxWidth="128.0" HBox.hgrow="ALWAYS" text="1"/>
+                    </HBox>
+                </VBox>
+            </TitledPane>
+            <TitledPane animated="false" collapsible="false" text="Параметры сглаживания">
+                <HBox>
+                    <Label maxHeight="1E308" maxWidth="1E308" text="Количество точек" HBox.hgrow="ALWAYS">
+                        <font>
+                            <Font size="11.0" />
+                        </font>
+                    </Label>
+                    <TextField fx:id="rectWidthField" maxHeight="25.0" maxWidth="128.0" HBox.hgrow="ALWAYS" text="90"/>
+                </HBox>
+            </TitledPane>
+            <TitledPane animated="false" collapsible="false" text="Допустимый уровень ошибки">
+                <HBox>
+                    <Label maxHeight="1E308" maxWidth="1E308" text="Порог" HBox.hgrow="ALWAYS">
+                        <font>
+                            <Font size="11.0" />
+                        </font>
+                    </Label>
+                    <TextField fx:id="epsilonField" maxHeight="25.0" maxWidth="128.0" HBox.hgrow="ALWAYS" text="0.0054"/>
+                </HBox>
+            </TitledPane>
+            <TitledPane animated="false" collapsible="false" text="Найденый интервал">
+                <VBox spacing="4.0">
+                    <HBox>
+                        <Label maxHeight="1E308" maxWidth="1E308" text="Граница №1:" HBox.hgrow="ALWAYS">
+                            <font>
+                                <Font size="11.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="labelN1" maxHeight="1E308" maxWidth="1E308" HBox.hgrow="ALWAYS">
+                            <font>
+                                <Font size="11.0" />
+                            </font>
+                        </Label>
+                    </HBox>
+                    <HBox>
+                        <Label maxHeight="1E308" maxWidth="1E308" text="Граница №2:" HBox.hgrow="ALWAYS">
+                            <font>
+                                <Font size="11.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="labelN2" maxHeight="1E308" maxWidth="1E308" HBox.hgrow="ALWAYS">
+                            <font>
+                                <Font size="11.0" />
+                            </font>
+                        </Label>
+                    </HBox>
+                </VBox>
+            </TitledPane>
+            <Separator maxHeight="1E308" prefWidth="200.0" visible="false" VBox.vgrow="ALWAYS" />
+            <Button maxWidth="1E308" mnemonicParsing="false" text="Сгенерировать сигнал" onAction="#generate" />
+        </VBox>
+    </left>
+    <center>
+        <VBox>
+            <LineChart title="Исходный сигнал" fx:id="signalChart" animated="false" createSymbols="false" legendSide="RIGHT" VBox.vgrow="ALWAYS">
+                <xAxis>
+                    <NumberAxis autoRanging="false" side="BOTTOM" tickUnit="50.0" upperBound="1000.0"/>
+                </xAxis>
+                <yAxis>
+                    <NumberAxis side="LEFT" />
+                </yAxis>
+            </LineChart>
+            <LineChart title="График ошибки" fx:id="errorChart" animated="false" createSymbols="false" legendSide="RIGHT" VBox.vgrow="ALWAYS">
+                <xAxis>
+                    <NumberAxis autoRanging="false" side="BOTTOM" tickUnit="50.0" upperBound="1000.0"/>
+                </xAxis>
+                <yAxis>
+                    <NumberAxis side="LEFT"/>
+                </yAxis>
+            </LineChart>
+        </VBox>
+    </center>
+</BorderPane>
